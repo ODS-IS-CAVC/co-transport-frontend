@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url(./globalicon.css);
+
+:root {
+  --background: #e8f1fe;
+  --foreground: #202020;
+  --primary: #0017c1;
+  --secondary: #264af4;
+  --tertiary: #00118f;
+  --success: #259d63;
+  --error: #ec0000;
+  --warning: #b78f00;
+  --gray-border: #969696;
+  --gray-item: #bac4cd;
+  --neutral: #f3f3f3;
+  --other-gray: #555555;
+  --default: #d9d9d9;
+}
+
+@layer base {
+  html {
+    background-color: var(--background) !important;
+    color: var(--foreground);
+    scroll-behavior: smooth;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  h2 {
+    font-size: 2rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  h4 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  h5 {
+    font-size: 1.25rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+  }
+
+  h6 {
+    font-size: 1rem;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+}
+
+@layer components {
+  /* Hidden arrows in input number */
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+  /* End hidden arrows in input number */
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 0.75rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--gray-item);
+    border-radius: 0.25rem;
+  }
+
+  /* End Scrollbar */
+}
