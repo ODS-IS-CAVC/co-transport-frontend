@@ -1,55 +1,48 @@
 # 共同輸送システムプロジェクト - フロントエンド
 
 ## 概要・目的
-このリポジトリは、共同輸送システムプロジェクトのフロントエンド部分を管理するものです。本システムは、運送能力情報を効率的に管理し、可視化し、ユーザーにとって使いやすいインターフェースを提供することを目的としています。
+このリポジトリは、共同輸送システムプロジェクトのフロントエンド部分を管理するものです。
+以下、アーキテクチャ概要を示す。  
+![](./docs/architecture.png)
 
-## 技術スタック
-- **フレームワーク:** Next.js 14.2
-- **プログラミング言語:** TypeScript
-- **スタイル:** Tailwind CSS, Hero UI
-- **状態管理:** Redux Toolkit
-- **API通信:** Axios
-- **フォームバリデーション:** Yup, React Hook Form
+本システムは[co-transport-frontend](https://github.com/ODS-IS-CAVC/co-transport-frontend.git)です。
 
 ## 前提環境
-- **Node.js:** v18 以上
-- **パッケージマネージャ:** npm / yarn / pnpm (いずれかを選択)
+- **Node.js:** v18 以上 v22 以下
 
-## 環境構築・起動手順
+## ビルド・起動手順
 ### 1. リポジトリのクローン
 ```bash
-git clone https://github.com/NextLogisticsJapan/release_OSS.git
-cd release_OSS/co-transport-frontend
+git clone https://github.com/ODS-IS-CAVC/co-transport-frontend.git
+cd co-transport-frontend
 ```
 
 ### 2. パッケージのインストール
 ```bash
-npm install  # または yarn install / pnpm install
+npm install
 ```
 
 ### 3. 環境変数の設定
 `.env.local` ファイルを作成し、以下のように環境変数を設定します。
-```
-NEXT_PUBLIC_BASE_URL=your_api_url_here
-NEXT_PUBLIC_API_AUTH=your_api_url_here
-NEXT_PUBLIC_API_TRANSACTION=your_api_url_here
-NEXT_PUBLIC_API_CARRIER=your_api_url_here
-NEXT_PUBLIC_API_SHIPPER=your_api_url_here
-NEXT_PUBLIC_IS_NOT_IX=true/false
-```
 
-### 4. 開発サーバーの起動
+|環境変数                |説明 |例 |
+|:-------------------------------------------|:-------|:-------|
+|NEXT_PUBLIC_API_TRANSACTION                 |[frontend-connection-service](https://github.com/ODS-IS-CAVC/co-operation-backend-services.git/frontend-connection-service)のサービスのURL |http://localhost:2200 |
+|NEXT_PUBLIC_API_CARRIER                 |[carrier-service](https://github.com/ODS-IS-CAVC/co-operation-backend-services.git/carrier-service)のサービスのURL |http://localhost:2900 |
+|NEXT_PUBLIC_API_SHIPPER                 |[shipper-service](https://github.com/ODS-IS-CAVC/co-operation-backend-services.git/shipper-service)のサービスのURL |http://localhost:2100 |
+
+### 4. 必要なAPI開発サーバーの起動
+- frontend-connection-serviceサービスを起動する
+- carrier-serviceサービスを起動する
+- shipper-serviceサービスを起動する
+
+### 5. 開発サーバーの起動
 ```bash
-npm run dev  # または yarn dev / pnpm dev
+npm run dev 
 ```
 
+## テスト手順
 ブラウザで `http://localhost:3000` にアクセスして確認してください。
-
-## ビルド手順
-本番環境向けに最適化されたビルドを作成するには、以下のコマンドを実行します。
-```bash
-npm run build  # または yarn build / pnpm build
-```
 
 ## 設計標準
 ### ユーザーインターフェース
@@ -110,14 +103,15 @@ npm run build  # または yarn build / pnpm build
 - **ブランチ戦略:** `main`（本番）
 
 ## 問合せ・要望
-問題が発生した場合や質問がある場合は、[サポートページ](https://github.com/NextLogisticsJapan/frontend/issues) にて Issue を作成してください。
+問題が発生した場合や質問がある場合は、[サポートページ](https://github.com/ODS-IS-CAVC/co-transport-frontend/issues) にて Issue を作成してください。
 
 ## ライセンス
 このプロジェクトは [MITライセンス](LICENSE.txt) のもとで公開されています。  
 詳細についてはリポジトリ内の `LICENSE` ファイルをご確認ください
 
 ## 免責事項
-このソフトウェアは「現状のまま」提供され、明示または黙示を問わず、いかなる保証も行いません。
+- 本リポジトリの内容は予告なく変更・削除する可能性があります。
+- 本リポジトリの利用により生じた損失及び損害等について、いかなる責任も負わないものとします。
 
 ## その他
 プロジェクトへの貢献を歓迎します。貢献する前に、`CONTRIBUTING.md` を必ず確認してください。
